@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Charting the first debate.</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+
+		<!-- DURING THE DEBATE CHARTS -->
+		<div id="viz-wrapper" class="wrapper">
+			<h1 id="viz-kicker">Explore the election issues people talked about on Twitter during and after the first presidential debate.</h1>
+			<div id="viz-timeframes-dropdown-wrapper" class="viz-dropdown-wrapper">
+				<h2 class="viz-dropdown-label">Select timeframes.</h2>
+				<ul id="viz-timeframes-dropdown" class="viz-dropdown"></ul>
+			</div>
+			<div id="viz-exclusives-dropdown-wrapper" class="viz-dropdown-wrapper">
+				<h2 class="viz-dropdown-label">Select user groups.</h2>
+				<ul id="viz-exclusives-dropdown" class="viz-dropdown"></ul>
+			</div>
+			<div id="viz-topics-dropdown-wrapper" class="viz-dropdown-wrapper">
+				<h2 class="viz-dropdown-label">Select topics.</h2>
+				<ul id="viz-topics-dropdown" class="viz-dropdown"></ul>
+			</div>
+			<div id="viz-subwrapper" class="subwrapper">
+				<svg id="viz"></svg>
+			</div>
+		</div>
+
+		<script src="js/vendor/d3.min.js"></script>
+		<script src="js/vendor/underscore.min.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
