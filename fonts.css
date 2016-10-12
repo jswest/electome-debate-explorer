@@ -55,3 +55,21 @@
     font-style: normal;
 
 }
+
+@font-face {
+    font-family: 'Playfair Display WF';
+    src: url('playfairdisplay-regular-webfont.woff2') format('woff2'),
+         url('playfairdisplay-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Playfair Display WF';
+    src: url('playfairdisplay-black-webfont.woff2') format('woff2'),
+         url('playfairdisplay-black-webfont.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+
+}
