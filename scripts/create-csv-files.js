@@ -1,8 +1,9 @@
 var fs = require( 'fs' );
 var _ = require( 'underscore' );
 
-var response = require( './../data/2016-09-26_2016-09-27_all.json' ).aggregates;
-
+var response = require( './../data/2016-09-27_2016-09-28_all.json' ).aggregates;
+// var response = require( './../data/2016-10-05_2016-10-06_all.json' ).aggregates;
+// var response = require( './../data/2016-10-10_2016-10-11_all.json' ).aggregates;
 
 var candidates = [];
 var civilities = [];
@@ -10,9 +11,14 @@ var exclusives = [];
 var genders = [];
 var topics = [];
 
+var index = 1;
 var debate = {
 	start: Date.parse( '2016-09-27 01:00' ),
 	end: Date.parse( '2016-09-27 03:00' )
+	// start: Date.parse( '2016-10-05 01:00' ),
+	// end: Date.parse( '2016-10-05 03:00' )
+	// start: Date.parse( '2016-10-10 01:00' ),
+	// end: Date.parse( '2016-10-10 03:00' )
 };
 
 _.each( response, function ( d ) {
@@ -141,7 +147,7 @@ _.each( keys, function ( key ) {
 		duringCsv += i === 0 ? data.during[key][topic] : ',' + data.during[key][topic];
 	} );
 
-	fs.writeFile( './data/csv/during-' + key + '.csv', duringCsv, function ( e ) { console.log( e ? e : 'File written.' ); } );
+	fs.writeFile( './data/csv/during-' + index + '-' + key + '.csv', duringCsv, function ( e ) { console.log( e ? e : 'File written.' ); } );
 
 	var postCsv = '';
 	_.each( topics, function ( topic, i ) {
@@ -153,14 +159,29 @@ _.each( keys, function ( key ) {
 		postCsv += i === 0 ? data.post[key][topic] : ',' + data.post[key][topic];
 	} );
 
-	fs.writeFile( './data/csv/post-' + key + '.csv', postCsv, function ( e ) { console.log( e ? e : 'File written.' ); } );
+	fs.writeFile( './data/csv/post-' + index + '-' + key + '.csv', postCsv, function ( e ) { console.log( e ? e : 'File written.' ); } );
 
 } );
 
-fs.writeFile( './data/data.json', JSON.stringify( data, null, 2 ), function ( e ) { console.log( e ? e : 'File written.' ) } );
+fs.writeFile( './data/data-' + index + '.json', JSON.stringify( data, null, 2 ), function ( e ) { console.log( e ? e : 'File written.' ) } );
 
 
 var csv = 'issue';
-_.each( keys, function ( key, i ) {
-	csv += i === 0 ? 
+_.each( [ 'during', 'post' ], function ( timeframe ) {
+	_.each( keys, function ( key ) {
+		csv += ',' + timeframe + ' ' + key;
+	} );
 } );
+csv += '\n';
+_.each( topics, function ( topic ) {
+	csv += topic;
+	_.each( [ 'during', 'post' ], function ( timeframe ) {
+		_.each( keys, function ( key ) {
+			csv += ',' + data[timeframe][key][topic];
+		} );
+	} );
+	csv += '\n';
+} );
+
+fs.writeFile( './data/data-' + index + '.csv', csv, function ( e ) { console.log( e ? e : 'File written.' ) } );
+

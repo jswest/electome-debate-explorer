@@ -2,12 +2,57 @@
   margin: 0;
   padding: 0; }
 
+body {
+  background-color: #eceeef; }
+
 .clear {
   clear: both; }
 
+#persist-header {
+  background: linear-gradient(to right, #5A76A8, #9F746E);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px; }
+
+#primary-header h1 {
+  font-family: "Playfair Display";
+  font-size: 50px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 50px;
+  margin: 60px auto 0 auto;
+  text-align: left;
+  text-transform: none; }
+  #primary-header h1::first-line {
+    font-weight: 800; }
+#primary-header p {
+  font-family: "Playfair Display";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  margin: 30px auto;
+  text-align: left; }
+  #primary-header p::first-line {
+    font-weight: 800; }
+  #primary-header p a {
+    color: #6D658D;
+    font-weight: 800;
+    text-decoration: none; }
+    #primary-header p a:hover {
+      text-decoration: underline; }
+
+#viz-wrapper {
+  background-color: #fcfcfc;
+  border: 1px solid #ececec;
+  border-radius: 5px;
+  margin-bottom: 75px; }
+
 .wrapper {
   margin: 25px auto 0 auto;
-  width: 800px; }
+  padding: 20px;
+  max-width: 800px; }
   .wrapper h1 {
     margin-bottom: 25px; }
   .wrapper h1, .wrapper h2 {
@@ -24,16 +69,18 @@
     clear: both;
     margin-top: 75px;
     width: 100%;
-    height: 600px; }
+    height: auto; }
   .wrapper .viz-dropdown-wrapper {
     cursor: pointer;
     float: left;
-    margin-left: 2%;
+    margin-top: 10px;
+    margin-right: 2%;
     position: relative;
     width: 32%;
+    min-width: 200px;
     height: 25px; }
-    .wrapper .viz-dropdown-wrapper:first-of-type {
-      margin-left: 0; }
+    .wrapper .viz-dropdown-wrapper:last-child {
+      margin-right: 0; }
     .wrapper .viz-dropdown-wrapper h2 {
       background-color: #eeeeee;
       box-sizing: border-box;
@@ -41,7 +88,11 @@
       width: 100%;
       height: 25px; }
   .wrapper .viz-dropdown {
-    display: none; }
+    overflow: hidden;
+    position: relative;
+    transition: all 300ms;
+    max-height: 0;
+    z-index: 2; }
     .wrapper .viz-dropdown li {
       background-color: #eeeeee;
       border-top: 1px solid #cccccc;
@@ -57,7 +108,8 @@
         background-color: #fefefe;
         color: #000000; }
     .wrapper .viz-dropdown.active {
-      display: block; }
+      overflow-y: scroll;
+      max-height: 320px; }
   .wrapper .bar-label {
     font-family: "Merriweather Sans WF";
     font-size: 10px;

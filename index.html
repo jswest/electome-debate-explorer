@@ -7,20 +7,26 @@
 	</head>
 	<body>
 
-		<!-- DURING THE DEBATE CHARTS -->
+		<header id="persist-header"></header>
+		<header id="primary-header" class="wrapper">
+			<h1>Compare the topics that set Twitter abuzz during the presidential and vice-presidential debates.</h1>
+			<p><a href="http://electome.org">The Electome</a>—a project of the Laboratory for Social Machines at the MIT Media Lab—tracks how Twitter talks about the 2016 election. Using sophisticated algorithms and machine learning, the Electome determines who is talking about what. Scroll down, and explore how Twitter reacted to the debates while they were happening.</p>
+		</header>
 		<div id="viz-wrapper" class="wrapper">
-			<h1 id="viz-kicker">Explore the election issues people talked about on Twitter during and after the first presidential debate.</h1>
-			<div id="viz-timeframes-dropdown-wrapper" class="viz-dropdown-wrapper">
-				<h2 class="viz-dropdown-label">Select timeframes.</h2>
-				<ul id="viz-timeframes-dropdown" class="viz-dropdown"></ul>
-			</div>
-			<div id="viz-exclusives-dropdown-wrapper" class="viz-dropdown-wrapper">
-				<h2 class="viz-dropdown-label">Select user groups.</h2>
-				<ul id="viz-exclusives-dropdown" class="viz-dropdown"></ul>
-			</div>
-			<div id="viz-topics-dropdown-wrapper" class="viz-dropdown-wrapper">
-				<h2 class="viz-dropdown-label">Select topics.</h2>
-				<ul id="viz-topics-dropdown" class="viz-dropdown"></ul>
+			<h1 id="viz-kicker">Select from the three dropdown menus below to comapre how Twitter users reacted to the debates.</h1>
+			<div class="dropdowns-wrapper">
+				<div id="viz-timeframes-dropdown-wrapper" class="viz-dropdown-wrapper">
+					<h2 class="viz-dropdown-label">Select timeframes.</h2>
+					<ul id="viz-timeframes-dropdown" class="viz-dropdown"></ul>
+				</div>
+				<div id="viz-exclusives-dropdown-wrapper" class="viz-dropdown-wrapper">
+					<h2 class="viz-dropdown-label">Select user groups.</h2>
+					<ul id="viz-exclusives-dropdown" class="viz-dropdown"></ul>
+				</div>
+				<div id="viz-topics-dropdown-wrapper" class="viz-dropdown-wrapper">
+					<h2 class="viz-dropdown-label">Select topics.</h2>
+					<ul id="viz-topics-dropdown" class="viz-dropdown"></ul>
+				</div>
 			</div>
 			<div id="viz-subwrapper" class="subwrapper">
 				<svg id="viz"></svg>
